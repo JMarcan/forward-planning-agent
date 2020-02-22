@@ -153,7 +153,7 @@ class PlanningGraph:
 
         cost = 0
         for g in self.goal:
-            for c_level,layer in enumerate(self.literal_layers):
+            for c_level, layer in enumerate(self.literal_layers):
                 if g in layer:
                     cost += c_level
                     break
@@ -187,7 +187,15 @@ class PlanningGraph:
         WARNING: you should expect long runtimes using this heuristic with A*
         """
         # TODO: implement maxlevel heuristic
-        raise NotImplementedError
+        self.fill() # fill the planning graph
+        
+        maxlevel = 0
+        for g in self.goal:
+            for c_level, layer in enumerate(self.literal_layers):
+                if g in layer:
+                    maxlevel = max(maxlevel, c_level)
+                    break
+        return maxlevel
 
     def h_setlevel(self):
         """ Calculate the set level heuristic for the planning graph
