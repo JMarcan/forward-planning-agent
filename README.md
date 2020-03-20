@@ -11,8 +11,6 @@ Then I've experimented with different search algorithms and heuristics, and used
 
 ## Results summary
 
-### Run time Analysis
-
 ![classification_sample](assets/Run_time_per_algorithm.png)
 
 - For a very restricted domain where real-time operation is needed the ideal choice is  Greedy Best First  (h_unmet_goals) that was together with Depth-First between the two fastest algorithms. Greedy Best-First search (heuristics: h_unmet_goals) kept the speed even with increasing numbers of actions and was the fastest algorithm.
